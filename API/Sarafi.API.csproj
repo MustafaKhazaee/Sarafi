@@ -33,8 +33,8 @@
 		<Folder Include="wwwroot\api\" />
 	</ItemGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	<!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 	  <Exec Command="FlutterClient/flutter-client-code-generator.bat" />
-	</Target>
+	</Target>-->
 
 </Project>
