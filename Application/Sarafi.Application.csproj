@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Applications\Activities\Commands\" />
+    <Folder Include="Applications\Activities\Dtos\" />
+    <Folder Include="Applications\Activities\Queries\" />
+    <Folder Include="Applications\Activities\Validators\" />
+    <Folder Include="Applications\Companies\Dtos\" />
+    <Folder Include="Applications\Connections\Commands\" />
+    <Folder Include="Applications\Connections\Dtos\" />
+    <Folder Include="Applications\Connections\Queries\" />
+    <Folder Include="Applications\Connections\Validators\" />
+    <Folder Include="Applications\ExchangeRates\Commands\" />
+    <Folder Include="Applications\ExchangeRates\Dtos\" />
+    <Folder Include="Applications\ExchangeRates\Queries\" />
+    <Folder Include="Applications\ExchangeRates\Validators\" />
+    <Folder Include="Applications\MasterAccounts\Dtos\" />
+    <Folder Include="Applications\Notification\Commands\" />
+    <Folder Include="Applications\Notification\Dtos\" />
+    <Folder Include="Applications\Notification\Queries\" />
+    <Folder Include="Applications\Notification\Validators\" />
+    <Folder Include="Applications\Permissions\Commands\" />
+    <Folder Include="Applications\Permissions\Dtos\" />
+    <Folder Include="Applications\Permissions\Queries\" />
+    <Folder Include="Applications\Permissions\Validators\" />
+    <Folder Include="Applications\Provinces\Commands\" />
+    <Folder Include="Applications\Provinces\Dtos\" />
+    <Folder Include="Applications\Provinces\Queries\" />
+    <Folder Include="Applications\Provinces\Validators\" />
+    <Folder Include="Applications\RolePermissions\Commands\" />
+    <Folder Include="Applications\RolePermissions\Dtos\" />
+    <Folder Include="Applications\RolePermissions\Queries\" />
+    <Folder Include="Applications\RolePermissions\Validators\" />
+    <Folder Include="Applications\Roles\Commands\" />
+    <Folder Include="Applications\Roles\Dtos\" />
+    <Folder Include="Applications\Roles\Queries\" />
+    <Folder Include="Applications\Roles\Validators\" />
+    <Folder Include="Applications\UserRoles\Commands\" />
+    <Folder Include="Applications\UserRoles\Dtos\" />
+    <Folder Include="Applications\UserRoles\Queries\" />
+    <Folder Include="Applications\UserRoles\Validators\" />
+    <Folder Include="Applications\Users\Commands\" />
+    <Folder Include="EventHandlers\Accounts\" />
+    <Folder Include="EventHandlers\Connections\" />
+    <Folder Include="EventHandlers\ExchangeRates\" />
+    <Folder Include="EventHandlers\MasterAccounts\" />
+    <Folder Include="EventHandlers\Permissions\" />
+    <Folder Include="EventHandlers\RolePermissions\" />
+    <Folder Include="EventHandlers\Roles\" />
+    <Folder Include="EventHandlers\Transactions\" />
+    <Folder Include="EventHandlers\UserRoles\" />
+    <Folder Include="EventHandlers\Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Sarafi.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
