@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\Transaction\" />
+    <Folder Include="Events\RolePermission\" />
+    <Folder Include="Events\UserRole\" />
+    <Folder Include="Events\User\" />
+    <Folder Include="Events\Role\" />
+    <Folder Include="Events\Permission\" />
+    <Folder Include="Events\MasterAccount\" />
+    <Folder Include="Events\ExchangeRate\" />
+    <Folder Include="Events\Connection\" />
+    <Folder Include="Events\Account\" />
+  </ItemGroup>
+
+</Project>
