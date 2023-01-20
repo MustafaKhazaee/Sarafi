@@ -22,8 +22,6 @@ public class User : AuditableEntity
     public Country Country { set; get; }
     public long ProvinceId { set; get; }
     public virtual Province Province { set; get; }
-    public long CompanyId { set; get; }
-    public virtual Company Company { set; get; }
     public byte[]? Signature { set; get; }
     public byte[]? FingerPrint { set; get; }
     public string? Photo { set; get; }

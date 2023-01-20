@@ -11,11 +11,15 @@ namespace Sarafi.Infrastructure.Persistence;
 public class ApplicationDbContext : DbContext
 {
     private readonly long _userId;
+    private readonly long _companyId;
     private readonly DateTime _now = DateTime.Now;
+
     public ApplicationDbContext(DbContextOptions options, IUserService userService) : base(options)
     {
         _userId = userService.GetUserId();
+        _companyId = userService.GetCompanyId();
     }
+
     public virtual DbSet<Account> Accounts { set; get; }
     public virtual DbSet<Connection> Connections { set; get; }
     public virtual DbSet<ExchangeRate> ExchangeRate { set; get; }
@@ -50,6 +54,7 @@ public class ApplicationDbContext : DbContext
     {
         foreach (EntityEntry<AuditableEntity> entry in ChangeTracker.Entries<AuditableEntity>())
         {
+            entry.Entity.CompanyId = _companyId;
             switch (entry.State)
             {
                 case EntityState.Added:
@@ -59,10 +64,6 @@ public class ApplicationDbContext : DbContext
                 case EntityState.Modified:
                     entry.Entity.ModifiedById = _userId;
                     entry.Entity.ModifiedDate = _now;
-                    break;
-                case EntityState.Deleted:
-                    entry.Entity.DeletedById = _userId;
-                    entry.Entity.DeletedDate = _now;
                     break;
             }
         }

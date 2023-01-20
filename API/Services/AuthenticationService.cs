@@ -87,12 +87,12 @@ public class AuthenticationService : IAuthenticationService
     {
         List<Claim> claims = new()
         {
-            new Claim("Id", $"{user.Id}"),
-            new Claim("Name", $"{user}"),
-            new Claim("CompanyId", $"{user.Company.Id}")
+            new Claim(UserClaims.Id, $"{user.Id}"),
+            new Claim(UserClaims.Name, $"{user}"),
+            new Claim(UserClaims.CompanyId, $"{user.Company.Id}")
         };
         permissions.ForEach(p => claims.Add(new Claim(ClaimTypes.Role, p))); // for authorization
-        roles.ForEach(r => claims.Add(new Claim("Role", r)));  // For نقش
+        roles.ForEach(r => claims.Add(new Claim(UserClaims.Role, r)));  // For نقش
         return claims;
     }
 }
