@@ -1,16 +1,15 @@
 ﻿using Sarafi.Application.Interfaces.Services;
 using System.Security.Claims;
 
-namespace Sarafi.API.Services
+namespace Sarafi.API.Services;
+
+public class UserService : IUserService
 {
-    public class UserService : IUserService
+    private readonly IHttpContextAccessor httpContextAccessor;
+    public UserService (IHttpContextAccessor httpContextAccessor)
     {
-        private readonly IHttpContextAccessor httpContextAccessor;
-        public UserService (IHttpContextAccessor httpContextAccessor)
-        {
-            this.httpContextAccessor = httpContextAccessor;
-        }
-        public long GetUserId() =>
-            long.Parse(httpContextAccessor?.HttpContext?.User?.FindFirstValue(ClaimTypes.SerialNumber) ?? "0");
+        this.httpContextAccessor = httpContextAccessor;
     }
+    public long GetUserId() =>
+        long.Parse(httpContextAccessor?.HttpContext?.User?.FindFirstValue(ClaimTypes.SerialNumber) ?? "0");
 }

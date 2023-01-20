@@ -10,13 +10,10 @@ namespace Sarafi.API.Controllers
     public class TransactionController : ControllerBase
     {
         IMediator mediator;
-        public TransactionController(IMediator mediator) { 
-            this.mediator = mediator;
-        }
+        public TransactionController(IMediator mediator) { this.mediator = mediator; }
 
         [HttpGet(nameof(GetAllTransactionsAsync))]
-        public async Task<List<TransactionDto>> GetAllTransactionsAsync() =>
-            await mediator.Send(new GetAllTransactionsQuery());
+        public async Task<List<TransactionDto>> GetAllTransactionsAsync() => await mediator.Send(new GetAllTransactionsQuery());
 
         [HttpPost(nameof(AddTransactionAsync))]
         public async Task<string> AddTransactionAsync(AddTransactionCommand addTransactionCommand) =>

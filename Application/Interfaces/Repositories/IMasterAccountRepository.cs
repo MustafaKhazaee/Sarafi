@@ -1,9 +1,8 @@
 ﻿
 using Sarafi.Domain.Entities;
 
-namespace Sarafi.Application.Interfaces.Repositories
+namespace Sarafi.Application.Interfaces.Repositories;
+
+public interface IMasterAccountRepository : IRepository<MasterAccount>
 {
-    public interface IMasterAccountRepository : IRepository<MasterAccount>
-    {
-    }
 }

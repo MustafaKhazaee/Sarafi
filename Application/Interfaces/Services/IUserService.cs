@@ -1,8 +1,7 @@
 ﻿
-namespace Sarafi.Application.Interfaces.Services
+namespace Sarafi.Application.Interfaces.Services;
+
+public interface IUserService
 {
-    public interface IUserService
-    {
-        long GetUserId();
-    }
+    long GetUserId();
 }
