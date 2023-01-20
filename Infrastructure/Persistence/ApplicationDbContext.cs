@@ -54,12 +54,12 @@ public class ApplicationDbContext : DbContext
     {
         foreach (EntityEntry<AuditableEntity> entry in ChangeTracker.Entries<AuditableEntity>())
         {
-            entry.Entity.CompanyId = _companyId;
             switch (entry.State)
             {
                 case EntityState.Added:
                     entry.Entity.CreatedById = _userId;
                     entry.Entity.CreatedDate = _now;
+                    entry.Entity.CompanyId = _companyId;
                     break;
                 case EntityState.Modified:
                     entry.Entity.ModifiedById = _userId;
