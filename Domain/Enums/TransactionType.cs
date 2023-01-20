@@ -1,10 +1,9 @@
 ﻿
-namespace Sarafi.Domain.Enums
+namespace Sarafi.Domain.Enums;
+
+public enum TransactionType
 {
-    public enum TransactionType
-    {
-        Transfer,
-        Withdraw,
-        Deposit
-    }
+    Transfer,
+    Withdraw,
+    Deposit
 }

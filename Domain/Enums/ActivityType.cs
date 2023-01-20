@@ -1,35 +1,34 @@
 ﻿
-namespace Sarafi.Domain.Enums
+namespace Sarafi.Domain.Enums;
+
+public enum ActivityType
 {
-    public enum ActivityType
-    {
-        AccountAdded,
-        AccountDeleted,
-        AccountUpdated,
+    AccountAdded,
+    AccountDeleted,
+    AccountUpdated,
 
-        CompanyAdded,
-        CompanyDeleted,
-        CompanyUpdate,
+    CompanyAdded,
+    CompanyDeleted,
+    CompanyUpdate,
 
-        ConnectionAdded,
-        ConnectionDeleted,
-        ConnectionUpdated,
+    ConnectionAdded,
+    ConnectionDeleted,
+    ConnectionUpdated,
 
-        ExchangeRateAdded,
-        ExchangeRateDeleted,
-        ExchangeRateUpdated,
+    ExchangeRateAdded,
+    ExchangeRateDeleted,
+    ExchangeRateUpdated,
 
-        MasterAccountAdded,
-        MasterAccountDeleted,
-        MasterAccountUpdated,
+    MasterAccountAdded,
+    MasterAccountDeleted,
+    MasterAccountUpdated,
 
-        UserAdded,
-        UserDeleted,
-        UserUpdated,
+    UserAdded,
+    UserDeleted,
+    UserUpdated,
 
-        TransactionAdded,
-        TransactionDeleted,
-        TransactionUpdated,
+    TransactionAdded,
+    TransactionDeleted,
+    TransactionUpdated,
 
-    }
 }
