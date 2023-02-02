@@ -8,5 +8,4 @@ public interface IUserRepository : IRepository<User>
 {
     Task<User?> GetUserByUsernameAsync(string username);
     Task<int> SetRefreshTokenAsync(long userId, string refreshToken);
-    Task<string> GetRefreshToken(long userId);
 }

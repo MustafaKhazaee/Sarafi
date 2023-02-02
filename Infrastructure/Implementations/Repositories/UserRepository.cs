@@ -29,13 +29,4 @@ public class UserRepository : Repository<User>, IUserRepository
             u => u.RefreshToken, u => refreshToken
         ));
 
-    public async Task<string> GetRefreshToken(long userId)
-    {
-        var user = await Query.AsNoTracking().FirstOrDefaultAsync(u => u.Id == userId);
-        if (user == null)
-        {
-            return string.Empty;
-        }
-        return user.RefreshToken;
-    }
 }
