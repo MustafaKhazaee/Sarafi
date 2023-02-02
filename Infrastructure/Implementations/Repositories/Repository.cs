@@ -45,10 +45,10 @@ public class Repository<T> : IRepository<T> where T : AuditableEntity
         await Query.Where(e => includeSoftDeleted || !e.IsDeleted).Where(predicate).AsNoTracking().ToListAsync(cancellationToken);
 
     public async Task<T?> FindByIdAsync(long Id, CancellationToken cancellationToken = default, bool includeSoftDeleted = false) =>
-        await Query.FirstOrDefaultAsync(e => e.Id == Id, cancellationToken);
+        await Query.AsNoTracking().FirstOrDefaultAsync(e => e.Id == Id, cancellationToken);
 
     public async Task<T?> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default, bool includeSoftDeleted = false) =>
-        await Query.FirstOrDefaultAsync<T>(predicate, cancellationToken);
+        await Query.AsNoTracking().FirstOrDefaultAsync<T>(predicate, cancellationToken);
 
     public async Task<List<T>> GetFilteredPageAsync(Expression<Func<T, bool>> predicate, int pageIndex = 0, int pageSize = 10, CancellationToken cancellationToken = default, bool includeSoftDeleted = false) =>
         await Query.Where(predicate).Skip(pageSize * pageIndex).Take(pageSize).AsNoTracking().ToListAsync(cancellationToken);
