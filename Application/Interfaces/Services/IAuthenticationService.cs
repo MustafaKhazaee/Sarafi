@@ -5,5 +5,5 @@ namespace Sarafi.Application.Interfaces.Services;
 
 public interface IAuthenticationService
 {
-    Task<LoginResponse> AuthenticateAsync(LoginDto loginDto);
+    Task<LoginResponse> AuthenticateAsync(LoginRequest loginDto);
 }

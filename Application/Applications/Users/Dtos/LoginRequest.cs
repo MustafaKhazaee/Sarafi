@@ -1,7 +1,7 @@
 ﻿
 namespace Sarafi.Application.Applications.Users.Dtos
 {
-    public class LoginDto
+    public class LoginRequest
     {
         public string UserName { get; set; }
         public string Password { get; set; }

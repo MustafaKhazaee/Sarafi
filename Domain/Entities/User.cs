@@ -12,6 +12,7 @@ public class User : AuditableEntity
     public string Password { set; get; }
     public string Salt { set; get; }
     public bool IsLocked { set; get; } = false;
+    public string RefreshToken { get; set; }
     public DateTime DateOfBirth { set; get; }
     public DateTime ActivationDate { set; get; } = DateTime.Now;
     public DateTime ExpirationDate { set; get; }
