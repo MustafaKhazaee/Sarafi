@@ -19,6 +19,10 @@ public class ApplicationDbContext : DbContext
         _userId = userService.GetUserId();
         _companyId = userService.GetCompanyId();
     }
+    static ApplicationDbContext()
+    {
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+    }
 
     public virtual DbSet<Account> Accounts { set; get; }
     public virtual DbSet<Connection> Connections { set; get; }

@@ -8,7 +8,7 @@ using Sarafi.Application.Interfaces.Services;
 
 namespace Sarafi.Application.Applications.Users.Queries
 {
-    public class LoginUserQuery : Mappable<LoginUserQuery, LoginDto>, IRequest<LoginResponse>
+    public class LoginUserQuery : Mappable<LoginUserQuery, LoginRequest>, IRequest<LoginResponse>
     {
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -26,10 +26,10 @@ namespace Sarafi.Application.Applications.Users.Queries
         }
         public async Task<LoginResponse> Handle(LoginUserQuery request, CancellationToken cancellationToken)
         {
-            var validation = await _validator.ValidateAsync(request);
+            var validation = await _validator.ValidateAsync(request, cancellationToken);
             if (validation.IsValid)
             {
-                var loginDto = _mapper.Map<LoginDto>(request);
+                var loginDto = _mapper.Map<LoginRequest>(request);
                 return await _authenticationService.AuthenticateAsync(loginDto);
             }
             return new LoginResponse { Response = $"{validation}" };

@@ -33,7 +33,8 @@ public static class ApplicationDbContextSeed
                 Country = Country.Afghanistan,
                 ProvinceId = 1,
                 CompanyId = 1,
-                UserType = UserType.Admin
+                UserType = UserType.Admin,
+                RefreshToken = null
             };
             UserRole userRole = new UserRole { Id = 1, UserId = 1, RoleId = 1 };
             RolePermission rolePermission = new RolePermission { Id = 1, RoleId = 1, PermissionId = 1 };

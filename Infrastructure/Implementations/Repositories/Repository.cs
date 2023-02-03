@@ -65,8 +65,8 @@ public class Repository<T> : IRepository<T> where T : AuditableEntity
     public async Task<int> SoftDeleteAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) =>
         await UpdateAsync(predicate, e => e.SetProperty(e => e.IsDeleted, d => true)
                                            .SetProperty(e => e.DeletedById, e => _userId)
-                                           .SetProperty(e => e.DeletedDate, e => _now)
-        , cancellationToken);
+                                           .SetProperty(e => e.DeletedDate, e => _now),
+            cancellationToken);
 
     public void MarkAsAdded(T entity) => _context.Entry(entity).State = EntityState.Added;
 
