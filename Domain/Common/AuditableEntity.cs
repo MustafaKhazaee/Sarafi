@@ -2,13 +2,27 @@
 namespace Sarafi.Domain.Common;
 
 public abstract class AuditableEntity {
-    public long Id { get; set; }
-    public long CompanyId { set; get; }
-    public long CreatedById { get; set; }
-    public DateTime CreatedDate { get; set; }
-    public long ModifiedById { get; set; }
-    public DateTime? ModifiedDate { get; set; }
-    public bool IsDeleted { get; set; }
-    public long? DeletedById { get; set; }
-    public DateTime? DeletedDate { get; set; }
+    public AuditableEntity() { }
+
+    public long Id { get; private set; }
+    public long? CompanyId { private set; get; }
+    public long? CreatedById { get; private set; }
+    public DateTime? CreatedDate { get; private set; }  
+    public long? ModifiedById { get; private set; }
+    public DateTime? ModifiedDate { get; private set; }
+    public bool IsDeleted { get; private set; } = false;
+    public long? DeletedById { get; private set; }
+    public DateTime? DeletedDate { get; private set; }
+
+    public void SetId (long id) => Id = id;
+
+    protected void SetCreatedDate (DateTime createdDate) => CreatedDate = createdDate;
+
+    public void SetCreatedById (long createdById) => ModifiedById = createdById;
+
+    public void SetCompanyId (long companyId) => CompanyId = companyId;
+
+    public void SetModifiedById (long modifiedById) => ModifiedById = modifiedById;
+
+    public void SetModifiedDate (DateTime modifiedDate) => ModifiedDate = modifiedDate;
 }

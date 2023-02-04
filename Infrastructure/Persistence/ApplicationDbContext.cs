@@ -41,7 +41,8 @@ public class ApplicationDbContext : DbContext
 
     protected override void ConfigureConventions(ModelConfigurationBuilder builder)
     {
-        builder.Properties<decimal>().HavePrecision(20, 6); // 6 decimal points + 14 wholes
+        builder.Properties<decimal>().HavePrecision(20, 6); // 6 Decimal points + 14 wholes
+        builder.Properties<string>().HaveMaxLength(200);    // Global max length for all string type columns
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -61,13 +62,13 @@ public class ApplicationDbContext : DbContext
             switch (entry.State)
             {
                 case EntityState.Added:
-                    entry.Entity.CreatedById = _userId;
-                    entry.Entity.CreatedDate = _now;
-                    entry.Entity.CompanyId = _companyId;
+                    entry.Entity.SetCreatedById(_userId);
+                    entry.Entity.SetCreatedDate(_now);
+                    entry.Entity.SetCompanyId(_companyId);
                     break;
                 case EntityState.Modified:
-                    entry.Entity.ModifiedById = _userId;
-                    entry.Entity.ModifiedDate = _now;
+                    entry.Entity.SetModifiedById(_userId);
+                    entry.Entity.SetModifiedDate(_now);
                     break;
             }
         }

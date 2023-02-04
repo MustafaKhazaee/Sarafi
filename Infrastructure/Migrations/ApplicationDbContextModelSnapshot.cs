@@ -32,19 +32,20 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("AccountName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<decimal>("Balance")
                         .HasPrecision(20, 6)
                         .HasColumnType("numeric(20,6)");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("CurrencyType")
@@ -65,7 +66,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<long>("MasterAccountId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -88,14 +89,10 @@ namespace Sarafi.Infrastructure.Migrations
                             Id = 1L,
                             AccountName = "Deposit",
                             Balance = 0.0m,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrencyType = 0,
                             IsDeleted = false,
                             IsLocked = false,
                             MasterAccountId = 1L,
-                            ModifiedById = 0L,
                             UserId = 1L
                         },
                         new
@@ -103,29 +100,21 @@ namespace Sarafi.Infrastructure.Migrations
                             Id = 2L,
                             AccountName = "Transfer",
                             Balance = 0.0m,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrencyType = 0,
                             IsDeleted = false,
                             IsLocked = false,
                             MasterAccountId = 1L,
-                            ModifiedById = 0L,
                             UserId = 1L
                         },
                         new
                         {
                             Id = 3L,
-                            AccountName = "Withdraw",
+                            AccountName = "Anything",
                             Balance = 0.0m,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrencyType = 0,
                             IsDeleted = false,
                             IsLocked = false,
                             MasterAccountId = 1L,
-                            ModifiedById = 0L,
                             UserId = 1L
                         });
                 });
@@ -141,13 +130,13 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<int>("ActivityType")
                         .HasColumnType("integer");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -161,9 +150,10 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("JsonData")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -188,18 +178,19 @@ namespace Sarafi.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Address")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Country")
                         .HasColumnType("integer");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -209,24 +200,29 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Floor")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Logo")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Market")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Mobile")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -234,13 +230,15 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<long>("ProvinceId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Room")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("Id");
 
@@ -252,12 +250,8 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            CompanyId = 0L,
                             Country = 0,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            ModifiedById = 0L,
                             Name = "Brute Force",
                             ProvinceId = 1L
                         });
@@ -271,16 +265,16 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("ConnectionStatus")
                         .HasColumnType("integer");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -295,7 +289,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -321,13 +315,13 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateTime")
@@ -345,7 +339,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -372,15 +366,16 @@ namespace Sarafi.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Code")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -394,9 +389,10 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("MasterAccountName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -410,13 +406,9 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            Code = "001",
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Code = "Hawala",
                             IsDeleted = false,
-                            MasterAccountName = "Hawala",
-                            ModifiedById = 0L
+                            MasterAccountName = "001"
                         });
                 });
 
@@ -431,13 +423,13 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<long>("ActivityId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -452,7 +444,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsRead")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -478,13 +470,13 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -496,7 +488,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -504,7 +496,8 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("PermissionCode")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("Id");
 
@@ -514,11 +507,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            ModifiedById = 0L,
                             PermissionCode = "root"
                         });
                 });
@@ -531,16 +520,16 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Country")
                         .HasColumnType("integer");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -552,7 +541,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -560,7 +549,8 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("Id");
 
@@ -570,12 +560,8 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            CompanyId = 0L,
                             Country = 0,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            ModifiedById = 0L,
                             Name = "Kabul"
                         });
                 });
@@ -588,13 +574,13 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -606,7 +592,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -614,7 +600,8 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("RoleName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("Id");
 
@@ -624,11 +611,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            ModifiedById = 0L,
                             RoleName = "System Developer"
                         });
                 });
@@ -641,13 +624,13 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -659,7 +642,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -683,11 +666,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            ModifiedById = 0L,
                             PermissionId = 1L,
                             RoleId = 1L
                         });
@@ -706,19 +685,20 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasColumnType("numeric(20,6)");
 
                     b.Property<string>("ApprovedBy")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<decimal>("Commission")
                         .HasPrecision(20, 6)
                         .HasColumnType("numeric(20,6)");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateTime")
@@ -743,17 +723,19 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Remarks")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("SlipPhoto")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
@@ -763,7 +745,8 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("ToPerson")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<byte[]>("ToPersonFingerPrint")
                         .HasColumnType("bytea");
@@ -791,16 +774,16 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<DateTime>("ActivationDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Country")
                         .HasColumnType("integer");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -813,21 +796,24 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Fathername")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<byte[]>("FingerPrint")
                         .HasColumnType("bytea");
 
                     b.Property<string>("Firstname")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
@@ -837,42 +823,51 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("Lastname")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Mobile1")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Mobile2")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("NationalIDNo")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("NationalIDPhoto")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Photo")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<long>("ProvinceId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("RefreshToken")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Salt")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<byte[]>("Signature")
                         .HasColumnType("bytea");
@@ -882,7 +877,8 @@ namespace Sarafi.Infrastructure.Migrations
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("Id");
 
@@ -903,14 +899,11 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            ActivationDate = new DateTime(2023, 2, 3, 9, 46, 44, 532, DateTimeKind.Local).AddTicks(7234),
-                            CompanyId = 1L,
+                            ActivationDate = new DateTime(2023, 2, 4, 17, 4, 5, 287, DateTimeKind.Local).AddTicks(1587),
                             Country = 0,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateTime(2023, 2, 3, 9, 46, 44, 532, DateTimeKind.Local).AddTicks(7231),
+                            DateOfBirth = new DateTime(2023, 2, 4, 17, 4, 5, 287, DateTimeKind.Local).AddTicks(1572),
                             Email = "mustafa.khazaee1@gmail.com",
-                            ExpirationDate = new DateTime(3023, 2, 3, 9, 46, 44, 532, DateTimeKind.Local).AddTicks(7235),
+                            ExpirationDate = new DateTime(3023, 2, 4, 17, 4, 5, 287, DateTimeKind.Local).AddTicks(1588),
                             Fathername = "Ahmad",
                             Firstname = "Mustafa",
                             IsDeleted = false,
@@ -918,10 +911,9 @@ namespace Sarafi.Infrastructure.Migrations
                             Lastname = "Khazaee",
                             Mobile1 = "+93747286603",
                             Mobile2 = "+93765661711",
-                            ModifiedById = 0L,
-                            Password = "25ea1a9c64a191b1d2d8e2af4c35bce5d031fd1fb609b2f6defe22faf1fb26752ce835b4d760c26489b0cf0be3929ccd212f4265457724be05cf483b61e60b7a",
+                            Password = "9d810b25d13973cb0fd59285e752e1acfe351b77e5b8675d7d30d4253f02fcd1e4195f42f72c959378434ebb23e32173c97486262436e2a1289a68fa5f3ac331",
                             ProvinceId = 1L,
-                            Salt = "5f3dee31861e44659b0b46fcb727d715",
+                            Salt = "b96f09416c71f6c43c0970df1f3920ad",
                             UserType = 0,
                             Username = "mustafa"
                         });
@@ -935,13 +927,13 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CreatedById")
+                    b.Property<long?>("CreatedById")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("DeletedById")
@@ -953,7 +945,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<long>("ModifiedById")
+                    b.Property<long?>("ModifiedById")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -977,11 +969,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            CompanyId = 0L,
-                            CreatedById = 0L,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            ModifiedById = 0L,
                             RoleId = 1L,
                             UserId = 1L
                         });

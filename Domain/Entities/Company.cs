@@ -6,15 +6,25 @@ namespace Sarafi.Domain.Entities;
 
 public class Company : AuditableEntity
 {
-    public string Name { set; get; }
-    public string? Address { set; get; }
-    public string? Market { set; get; }
-    public string? Floor { set; get; }
-    public string? Room { set; get; }
-    public string? Email { set; get; }
-    public string? Mobile { set; get; }
-    public string? Logo { set; get; }
-    public Country Country { set; get; }
-    public long ProvinceId { set; get; }
-    public virtual Province Province { set; get; }
+    public Company() { }
+
+    public string Name { private set; get; }
+    public string? Address { private set; get; }
+    public string? Market { private set; get; }
+    public string? Floor { private set; get; }
+    public string? Room { private set; get; }
+    public string? Email { private set; get; }
+    public string? Mobile { private set; get; }
+    public string? Logo { private set; get; }
+    public Country Country { private set; get; }
+    public long ProvinceId { private set; get; }
+    public virtual Province Province { private set; get; }
+
+    public Company(long id, string name, long provinceId, Country country = Country.Afghanistan)
+    {
+        SetId(id);
+        Name = name;
+        Country = country;
+        ProvinceId = provinceId;
+    }
 }
