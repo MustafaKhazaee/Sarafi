@@ -14,9 +14,9 @@ public abstract class AuditableEntity {
     public long? DeletedById { get; private set; }
     public DateTime? DeletedDate { get; private set; }
 
-    public void SetId (long id) => Id = id;
+    protected void SetId (long id) => Id = id;
 
-    protected void SetCreatedDate (DateTime createdDate) => CreatedDate = createdDate;
+    public void SetCreatedDate (DateTime createdDate) => CreatedDate = createdDate;
 
     public void SetCreatedById (long createdById) => ModifiedById = createdById;
 

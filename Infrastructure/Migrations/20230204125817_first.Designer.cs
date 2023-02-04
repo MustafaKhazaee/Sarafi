@@ -12,7 +12,7 @@ using Sarafi.Infrastructure.Persistence;
 namespace Sarafi.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230204123405_first")]
+    [Migration("20230204125817_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -902,11 +902,11 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            ActivationDate = new DateTime(2023, 2, 4, 17, 4, 5, 287, DateTimeKind.Local).AddTicks(1587),
+                            ActivationDate = new DateTime(2023, 2, 4, 17, 28, 17, 406, DateTimeKind.Local).AddTicks(5758),
                             Country = 0,
-                            DateOfBirth = new DateTime(2023, 2, 4, 17, 4, 5, 287, DateTimeKind.Local).AddTicks(1572),
+                            DateOfBirth = new DateTime(2023, 2, 4, 17, 28, 17, 406, DateTimeKind.Local).AddTicks(5743),
                             Email = "mustafa.khazaee1@gmail.com",
-                            ExpirationDate = new DateTime(3023, 2, 4, 17, 4, 5, 287, DateTimeKind.Local).AddTicks(1588),
+                            ExpirationDate = new DateTime(3023, 2, 4, 17, 28, 17, 406, DateTimeKind.Local).AddTicks(5758),
                             Fathername = "Ahmad",
                             Firstname = "Mustafa",
                             IsDeleted = false,
@@ -914,9 +914,9 @@ namespace Sarafi.Infrastructure.Migrations
                             Lastname = "Khazaee",
                             Mobile1 = "+93747286603",
                             Mobile2 = "+93765661711",
-                            Password = "9d810b25d13973cb0fd59285e752e1acfe351b77e5b8675d7d30d4253f02fcd1e4195f42f72c959378434ebb23e32173c97486262436e2a1289a68fa5f3ac331",
+                            Password = "f7bda75d8c38f2fd716845859f932217689f6982bdec7619e157d9d25096067278404f635648e10603f6da8ba8b856409694b079b75e65e35f9ccb9b71e8641b",
                             ProvinceId = 1L,
-                            Salt = "b96f09416c71f6c43c0970df1f3920ad",
+                            Salt = "050a03bac64f7bf4e188fd463d5ecbb0",
                             UserType = 0,
                             Username = "mustafa"
                         });
