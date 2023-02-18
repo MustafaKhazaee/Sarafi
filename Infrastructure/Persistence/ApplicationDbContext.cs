@@ -74,4 +74,30 @@ public class ApplicationDbContext : DbContext
         }
         return base.SaveChangesAsync(cancellationToken);
     }
+    private async Task DispatchEvents()
+    {
+        //while (true)
+        //{
+        //    var domainEventEntity = ChangeTracker.Entries<IHasDomainEvent>()
+        //        .Select(x => x.Entity.DomainEvents)
+        //        .Where(x => x != null)
+        //        .SelectMany(x => x)
+        //        .Where(domainEvent => !domainEvent.IsPublished)
+        //        .FirstOrDefault();
+        //    if (domainEventEntity == null)
+        //        break;
+
+        //    var processorAttributes = domainEventEntity.GetType().GetCustomAttributes(typeof(ProcessedByEventProcessorAttribute), true);
+        //    var processorAttribute = (ProcessedByEventProcessorAttribute)processorAttributes.SingleOrDefault();
+        //    if (processorAttribute != null)
+        //    {
+        //        domainEventEntity.IsPublished = true;
+        //        continue;
+        //    }
+
+
+        //    domainEventEntity.IsPublished = true;
+        //    await _domainEventService.PublishAsync(domainEventEntity);
+    }
 }
+

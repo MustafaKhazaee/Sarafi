@@ -40,7 +40,7 @@ public class AuthenticationService : IAuthenticationService
         }
         else
         {
-            string hashedPassword = $"{user.Password}{user.Salt}".GetHash();
+            string hashedPassword = $"{loginDto.Password}{user.Salt}".GetHash();
             if (user.Password.Equals(hashedPassword))
             {
                 List<Role> Roles = new();
@@ -86,7 +86,7 @@ public class AuthenticationService : IAuthenticationService
         {
             return new RefreshTokenResponse { IsRefreshed = false };
         }
-        User? user = await uow.UserRepository.FindByIdAsync(refreshTokenRequest.UserId.Value);
+        User? user = await uow.UserRepository.GetUserByIdAsync(refreshTokenRequest.UserId.Value);
         if (user == null || user.RefreshToken == null) return new RefreshTokenResponse { IsRefreshed = false };
         var isValid = IsTokenValid(refreshTokenRequest, user.RefreshToken, user.Id);
         if (!isValid)
@@ -111,7 +111,9 @@ public class AuthenticationService : IAuthenticationService
         string algorithm = SecurityAlgorithms.HmacSha512;
         SigningCredentials credentials = await Task.FromResult(new SigningCredentials(key, algorithm));
         List<Claim> claims = await Task.FromResult(GetClaims(user, roles, permissions));
-        JwtSecurityToken securityToken = await Task.FromResult(new JwtSecurityToken(_validIssuer, _validAudience, claims, null, expirationDate, credentials));
+        JwtSecurityToken securityToken = await Task.FromResult(new JwtSecurityToken(
+            _validIssuer, _validAudience, claims, null, expirationDate, credentials
+        ));
         JwtSecurityTokenHandler handler = new();
         return await Task.FromResult(handler.WriteToken(securityToken));
     }
@@ -133,7 +135,7 @@ public class AuthenticationService : IAuthenticationService
     {
         var token = refreshTokenRequest.RefreshToken;
         var userId = refreshTokenRequest.UserId.Value;
-        if (token.GetHash() != refreshTokenDb || userId != userIdDb) return false;
+        if (!token.GetHash().Equals(refreshTokenDb) || userId != userIdDb) return false;
         var tokenHandler = new JwtSecurityTokenHandler();
         SymmetricSecurityKey key = new(Encoding.Unicode.GetBytes(_issuerSigninKey));
         try
@@ -153,7 +155,7 @@ public class AuthenticationService : IAuthenticationService
             var tokenUserId = long.Parse(jwtToken.Claims.First(x => x.Type == UserClaims.Id).Value);
             return userId == tokenUserId;
         }
-        catch
+        catch (Exception ex)
         {
             return false;
         }

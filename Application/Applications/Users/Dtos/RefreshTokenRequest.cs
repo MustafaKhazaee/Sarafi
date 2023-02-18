@@ -5,5 +5,4 @@ public class RefreshTokenRequest
 {
     public long? UserId { set; get; }
     public string RefreshToken { set; get; }
-    public bool IsSuccess { set; get; }
 }

@@ -17,6 +17,10 @@ namespace Sarafi.Application.Applications.Accounts.Queries
             _mapper = mapper;
         }
         public async Task<List<AccountDto>> Handle(GetAllAccountsQuery request, CancellationToken cancellationToken)
-            => _mapper.Map<List<AccountDto>>(await _uow.AccountRepository.GetAllAsync(cancellationToken));
+        {
+            var a = await _uow.AccountRepository.GetAllAsync(cancellationToken);
+            
+            return _mapper.Map<List<AccountDto>>(a);
+        }
     }
 }

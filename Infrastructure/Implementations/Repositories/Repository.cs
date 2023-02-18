@@ -18,11 +18,13 @@ public class Repository<T> : IRepository<T> where T : AuditableEntity
     /// </summary>
     public IQueryable<T> Query { private set; get; }
 
-    public Repository(ApplicationDbContext context, IUserService userSeervice)
+    public Repository(ApplicationDbContext context, IUserService userService)
     {
         _context = context;
-        Query = _context.Set<T>().Where(e => e.CompanyId == userSeervice.GetCompanyId()).AsQueryable();
-        _userId = userSeervice.GetUserId();
+        //Query = _context.Set<T>().Where(e => e.CompanyId == userService.GetCompanyId()).AsQueryable();
+
+        Query = _context.Set<T>().AsQueryable();
+        _userId = userService.GetUserId();
         _now = DateTime.Now;
     }
 
@@ -54,7 +56,7 @@ public class Repository<T> : IRepository<T> where T : AuditableEntity
         await Query.Where(predicate).Skip(pageSize * pageIndex).Take(pageSize).AsNoTracking().ToListAsync(cancellationToken);
 
     public async Task<List<T>> GetAllAsync(CancellationToken cancellationToken = default, bool includeSoftDeleted = false) =>
-        await Query.Where(e => includeSoftDeleted || !e.IsDeleted).AsNoTracking().ToListAsync(cancellationToken);
+        await Query.AsNoTracking().ToListAsync(cancellationToken);
 
     public async Task<int> RemoveAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) =>
         await Query.Where(predicate).ExecuteDeleteAsync(cancellationToken);

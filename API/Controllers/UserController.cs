@@ -13,5 +13,7 @@ namespace Sarafi.API.Controllers
         [HttpPost(nameof(AuthenticateAsync)), AllowAnonymous]
         public async Task<LoginResponse> AuthenticateAsync (LoginUserQuery loginUser) => await mediator.Send(loginUser);
 
+        [HttpPost(nameof(RefreshTokenAsync)), AllowAnonymous]
+        public async Task<RefreshTokenResponse> RefreshTokenAsync(RefreshTokenRequestQuery request) => await mediator.Send(request);
     }
 }

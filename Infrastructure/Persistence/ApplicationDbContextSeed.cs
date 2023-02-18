@@ -19,9 +19,9 @@ public static class ApplicationDbContextSeed
             1, "Mustafa", "Khazaee", "Ahmad",
             "mustafa.khazaee1@gmail.com",
             "mustafa", $"Root_Mustafa@123{salt}".GetHash(), salt, null,
-            DateTime.Now, DateTime.Now, DateTime.Now.AddYears(1000),
+            DateTime.Now, DateTime.Now, DateTime.Now.AddYears(8),
             "+93747286603", "+93765661711", null,
-            UserType.Admin, Country.Afghanistan, 1
+            UserType.Admin, Country.Afghanistan, 1, 1
         );
         UserRole userRole = new(1, 1, 1);
         RolePermission rolePermission = new(1, 1, 1);
