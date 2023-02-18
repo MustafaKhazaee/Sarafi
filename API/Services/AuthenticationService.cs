@@ -62,8 +62,11 @@ public class AuthenticationService : IAuthenticationService
                     }
                     else
                     {
+                        //DateTime refDate = user.ExpirationDate;
+
+                        DateTime refDate = DateTime.Now.AddMinutes(3);
                         DateTime dateTime = DateTime.Now.AddMinutes(Values.RefreshTokenLifeTimeMinutes);
-                        string refreshToken = await GenerateJWT(user, roles, permissions, user.ExpirationDate);
+                        string refreshToken = await GenerateJWT(user, roles, permissions, refDate);
                         string accessToken = await GenerateJWT(user, roles, permissions, dateTime);
                         await uow.UserRepository.SetRefreshTokenAsync(user.Id, refreshToken.GetHash());
                         response.Response = AuthenticationMessages.UserAuthorized;
