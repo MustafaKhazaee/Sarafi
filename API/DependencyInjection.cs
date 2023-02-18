@@ -46,7 +46,8 @@ public static class DependencyInjection
                 ValidateIssuerSigningKey = true,
                 ValidateLifetime = true,
                 ValidateAudience = true,
-                ValidateIssuer = true
+                ValidateIssuer = true,
+                ClockSkew = TimeSpan.Zero,
             };
             //// Configuration For Real-Time SignalR :
             //options.Events = new JwtBearerEvents

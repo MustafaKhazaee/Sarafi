@@ -1,6 +1,5 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using Sarafi.Application.Extensions;
 using Sarafi.Application.Interfaces.Repositories;
 using Sarafi.Application.Interfaces.Services;
 using Sarafi.Domain.Entities;
@@ -14,19 +13,22 @@ public class UserRepository : Repository<User>, IUserRepository
     {
     }
 
-    public async Task<User?> GetUserByUsernameAsync (string username) =>
-        await Query.Where(u => u.Username.Equals(username))
-                   .Include(u => u.UserRoles)
-                   .ThenInclude(ur => ur.Role)
-                   .ThenInclude(r => r.RolePermissions)
-                   .ThenInclude(rp => rp.Permission)
-                   .AsNoTracking()
-                   .FirstOrDefaultAsync();
+    public async Task<User?> GetUserByIdAsync(long userId) =>
+        await GetUserAllDetails(Query.Where(u => u.Id == userId));
 
+    public async Task<User?> GetUserByUsernameAsync(string username) =>
+        await GetUserAllDetails(Query.Where(u => u.Username.Equals(username)));
 
     public async Task<int> SetRefreshTokenAsync (long userId, string refreshToken) =>
         await UpdateAsync(u => u.Id == userId, u => u.SetProperty(
             u => u.RefreshToken, u => refreshToken
         ));
 
+    private async Task<User?> GetUserAllDetails (IQueryable<User> query) =>
+        await query.Include(u => u.UserRoles)
+                   .ThenInclude(ur => ur.Role)
+                   .ThenInclude(r => r.RolePermissions)
+                   .ThenInclude(rp => rp.Permission)
+                   .AsNoTracking()
+                   .FirstOrDefaultAsync();
 }

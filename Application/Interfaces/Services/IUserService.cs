@@ -5,4 +5,5 @@ public interface IUserService
 {
     long GetUserId();
     long GetCompanyId();
+    string GetUserName();
 }

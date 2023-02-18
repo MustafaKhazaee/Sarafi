@@ -46,7 +46,7 @@ public class User : AuditableEntity
 
     public override string ToString() => $"{Firstname} {Lastname}";
 
-    public User(long id, string firstname, string lastname, string fathername, string? email, string username, string password, string salt, string? refreshToken, DateTime dateOfBirth, DateTime activationDate, DateTime expirationDate, string? mobile1, string? mobile2, string? nationalIDNo, UserType userType, Country country, long provinceId)
+    public User(long id, string firstname, string lastname, string fathername, string? email, string username, string password, string salt, string? refreshToken, DateTime dateOfBirth, DateTime activationDate, DateTime expirationDate, string? mobile1, string? mobile2, string? nationalIDNo, UserType userType, Country country, long provinceId, long companyId)
     {
         SetId(id);
         Firstname = firstname;
@@ -65,7 +65,7 @@ public class User : AuditableEntity
         NationalIDNo = nationalIDNo;
         UserType = userType;
         ProvinceId = provinceId;
-
+        SetCompanyId(companyId);
 
         UserRoles = new List<UserRole>();
         Accounts = new List<Account>();

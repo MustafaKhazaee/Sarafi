@@ -17,7 +17,7 @@ namespace Sarafi.API.Controllers
         public async Task<string> AddAccountAsync(AddAccountCommand addAccountCommand) => 
             await mediator.Send(addAccountCommand);
         
-        [HttpGet(nameof(GetAllAccountsAsync))]
+        [HttpGet(nameof(GetAllAccountsAsync)), Authorize(Roles = AuthorizationRoles.Accounts.Get)]
         public async Task<List<AccountDto>> GetAllAccountsAsync() =>
             await mediator.Send(new GetAllAccountsQuery());
     }

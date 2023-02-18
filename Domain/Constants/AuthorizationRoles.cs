@@ -2,7 +2,7 @@
 
 public static class AuthorizationRoles
 {
-    private const string root = "r";
+    private const string root = "root";
     public static class Accounts
     {
         public const string Get = $"{root}, 00";
