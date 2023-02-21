@@ -1,8 +1,9 @@
 ﻿using Sarafi.Domain.Common;
 using Sarafi.Domain.Enums;
+
 namespace Sarafi.Domain.Entities; 
 
-public class Account : AuditableEntity
+public class Account : AggregateRoot, IMultiTenant
 {
     public Account()
     {
@@ -20,10 +21,11 @@ public class Account : AuditableEntity
     public bool IsLocked { private set; get; } = false;
     public virtual ICollection<Transaction> TransactionsIn { private set; get; }
     public virtual ICollection<Transaction> TransactionsOut { private set; get; }
-
-    public Account(long id, string accountName, long userId, long masterAccountId, CurrencyType currencyType = CurrencyType.Afghani)
+    public long CompanyId { get; set; }
+    public Account(long id, string accountName, long userId, long masterAccountId, CurrencyType currencyType, long companyId)
     {
         SetId(id);
+        SetCompanyId(companyId);
         AccountName = accountName;
         UserId = userId;
         MasterAccountId = masterAccountId;
@@ -32,4 +34,10 @@ public class Account : AuditableEntity
         TransactionsIn = new List<Transaction>();
         TransactionsOut = new List<Transaction>();
     }
+
+    public void SetCompanyId(long companyId) => CompanyId = companyId;
+
+    public void AddBalance(decimal balance) => Balance += balance;
+
+    public void DeductBalance(decimal balance) => Balance -= balance;
 }

@@ -4,7 +4,7 @@ using Sarafi.Domain.Enums;
 
 namespace Sarafi.Domain.Entities;
 
-public class Province : AuditableEntity
+public class Province : AggregateRoot
 {
     public Province() {
         Users = new List<User>();
@@ -21,7 +21,6 @@ public class Province : AuditableEntity
         SetId(id);
         Name = name;
         Country = country;
-
         Users = new List<User>();
         Companies = new List<Company>();
     }

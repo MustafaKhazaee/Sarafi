@@ -4,5 +4,5 @@ namespace Sarafi.Domain.Constants;
 
 public static class Values
 {
-    public const int RefreshTokenLifeTimeMinutes = 1;
+    public const int RefreshTokenLifeTimeMinutes = 10;
 }

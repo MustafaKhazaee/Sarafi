@@ -17,4 +17,5 @@ public interface IUnitOfWork
     IProvinceRepository ProvinceRepository { get; set; }
     IActivityRepository ActivityRepository { get; set; }
     INotificationRepository NotificationRepository { get; set; }
+    Task<int> SaveChangesAsync(CancellationToken cancellation);
 }

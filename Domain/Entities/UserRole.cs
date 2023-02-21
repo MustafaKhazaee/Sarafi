@@ -2,7 +2,7 @@
 using Sarafi.Domain.Common;
 
 namespace Sarafi.Domain.Entities; 
-public class UserRole : AuditableEntity
+public class UserRole : AggregateRoot, IMultiTenant
 {
     public UserRole() { }
 
@@ -10,11 +10,15 @@ public class UserRole : AuditableEntity
     public virtual User User { private set; get; }
     public long RoleId { private set; get; }
     public virtual Role Role { private set; get; }
+    public long CompanyId { set; get; }
 
-    public UserRole(long id, long userId, long roleId)
+    public UserRole(long id, long userId, long roleId, long companyId)
     {
         SetId(id);
+        SetCompanyId(companyId);
         UserId = userId;
         RoleId = roleId;
     }
+
+    public void SetCompanyId(long companyId) => CompanyId = companyId;
 }

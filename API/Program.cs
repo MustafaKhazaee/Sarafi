@@ -1,4 +1,5 @@
 
+using Sarafi.API.Middlewares;
 using Sarafi.Application;
 using Sarafi.Infrastructure;
 
@@ -18,7 +19,6 @@ public class Program
         var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
         loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"]?.ToString());
 
-
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
@@ -26,6 +26,7 @@ public class Program
             app.UseOpenApi();
         }
 
+        app.UseMiddleware<ApiKeyMiddleware>();
         app.UseHttpsRedirection();
         app.UseCors("AllowedCorsOrigin");
         app.UseAuthentication();

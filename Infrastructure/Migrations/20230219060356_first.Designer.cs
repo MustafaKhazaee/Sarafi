@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Sarafi.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using Sarafi.Infrastructure.Persistence;
 namespace Sarafi.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230219060356_first")]
+    partial class first
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -755,16 +758,11 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<int>("TransactionType")
                         .HasColumnType("integer");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FromAccountId");
 
                     b.HasIndex("ToAccountId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Transactions");
                 });
@@ -905,12 +903,12 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            ActivationDate = new DateTime(2023, 2, 19, 16, 12, 29, 432, DateTimeKind.Local).AddTicks(6067),
+                            ActivationDate = new DateTime(2023, 2, 19, 10, 33, 55, 974, DateTimeKind.Local).AddTicks(2872),
                             CompanyId = 1L,
                             Country = 0,
-                            DateOfBirth = new DateTime(2023, 2, 19, 16, 12, 29, 432, DateTimeKind.Local).AddTicks(6054),
+                            DateOfBirth = new DateTime(2023, 2, 19, 10, 33, 55, 974, DateTimeKind.Local).AddTicks(2858),
                             Email = "mustafa.khazaee1@gmail.com",
-                            ExpirationDate = new DateTime(2031, 2, 19, 16, 12, 29, 432, DateTimeKind.Local).AddTicks(6067),
+                            ExpirationDate = new DateTime(2031, 2, 19, 10, 33, 55, 974, DateTimeKind.Local).AddTicks(2873),
                             Fathername = "Ahmad",
                             Firstname = "Mustafa",
                             IsDeleted = false,
@@ -918,9 +916,9 @@ namespace Sarafi.Infrastructure.Migrations
                             Lastname = "Khazaee",
                             Mobile1 = "+93747286603",
                             Mobile2 = "+93765661711",
-                            Password = "87e9e48524598330707960f5efd7f80eb6b806624b12a1474dfbc36adb91dab3c062a04737cd904b6e654fd479bff1d75aee1062b033934b72bf0a54ed5fcb58",
+                            Password = "435da3d45fcff89a2b893329146f2af308159bddb675b17183286c010f047f029c14c0cc2858c5aaa96dab4f19554d8509225762a586230504d4377f17777a18",
                             ProvinceId = 1L,
-                            Salt = "cf9968256056e3130cb4b5ee7cf3f49a",
+                            Salt = "3d0a9849200f780f0e682a4d3c4ab64f",
                             UserType = 0,
                             Username = "mustafa"
                         });
@@ -1094,15 +1092,9 @@ namespace Sarafi.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Sarafi.Domain.Entities.User", "User")
-                        .WithMany("Transactions")
-                        .HasForeignKey("UserId");
-
                     b.Navigation("FromAccount");
 
                     b.Navigation("ToAccount");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Sarafi.Domain.Entities.User", b =>
@@ -1177,8 +1169,6 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Navigation("ConnectionsTo");
 
                     b.Navigation("Notifications");
-
-                    b.Navigation("Transactions");
 
                     b.Navigation("UserRoles");
                 });

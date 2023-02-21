@@ -2,7 +2,7 @@
 using Sarafi.Domain.Enums;
 
 namespace Sarafi.Domain.Entities; 
-public class User : AuditableEntity
+public class User : AggregateRoot, IMultiTenant
 {
     public User()
     {
@@ -43,8 +43,12 @@ public class User : AuditableEntity
     public virtual ICollection<Connection> ConnectionsTo { private set; get; }
     public virtual ICollection<Activity> Activities {   private set; get; }
     public virtual ICollection<Notification> Notifications { private set; get; }
+    public virtual ICollection<Transaction> Transactions { private set; get; }
+    public long CompanyId { get; set; }
 
     public override string ToString() => $"{Firstname} {Lastname}";
+
+    public void SetCompanyId(long companyId) => CompanyId = companyId;
 
     public User(long id, string firstname, string lastname, string fathername, string? email, string username, string password, string salt, string? refreshToken, DateTime dateOfBirth, DateTime activationDate, DateTime expirationDate, string? mobile1, string? mobile2, string? nationalIDNo, UserType userType, Country country, long provinceId, long companyId)
     {

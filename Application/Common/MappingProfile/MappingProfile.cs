@@ -10,7 +10,7 @@ namespace Sarafi.Application.Common.MappingProfile
         {
             new List<Type[]> {
                 Assembly.GetExecutingAssembly().GetExportedTypes(),
-                typeof(AuditableEntity).Assembly.GetExportedTypes()
+                typeof(AggregateRoot).Assembly.GetExportedTypes()
             }
             .SelectMany(a => a.ToList())
             .Where(t => t.IsAssignableTo(typeof(IMap)) && t.IsClass && !t.IsGenericType)

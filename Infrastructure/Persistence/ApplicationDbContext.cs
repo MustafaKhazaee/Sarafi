@@ -51,20 +51,23 @@ public class ApplicationDbContext : DbContext
             Assembly.GetExecutingAssembly(), t => t.GetInterfaces().Any(i =>
             i.IsGenericType &&
             i.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>) &&
-            typeof(AuditableEntity).IsAssignableFrom(i.GenericTypeArguments[0])));
+            typeof(AggregateRoot).IsAssignableFrom(i.GenericTypeArguments[0])));
         this.SeedDatabase(builder);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
-        foreach (EntityEntry<AuditableEntity> entry in ChangeTracker.Entries<AuditableEntity>())
+        foreach (EntityEntry<AggregateRoot> entry in ChangeTracker.Entries<AggregateRoot>())
         {
             switch (entry.State)
             {
                 case EntityState.Added:
                     entry.Entity.SetCreatedById(_userId);
                     entry.Entity.SetCreatedDate(_now);
-                    entry.Entity.SetCompanyId(_companyId);
+                    if (entry.Entity is IMultiTenant)
+                    {
+                        (entry.Entity as IMultiTenant).SetCompanyId(_companyId);
+                    }
                     break;
                 case EntityState.Modified:
                     entry.Entity.SetModifiedById(_userId);

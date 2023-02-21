@@ -7,6 +7,7 @@ namespace Sarafi.Application.Applications.Accounts.Dtos
 {
     public class AccountDto : Mappable<Account, AccountDto>
     {
+        public long Id { set; get; }
         public long MasterAccountId { set; get; }
         public long UserId { set; get; }
         public string AccountName { set; get; }

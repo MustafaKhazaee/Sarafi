@@ -7,16 +7,15 @@ using Sarafi.Application.Applications.Transactions.Queries;
 
 namespace Sarafi.API.Controllers
 {
-    public class TransactionController : ControllerBase
+    public class TransactionController : SarafiV1Controller
     {
-        IMediator mediator;
-        public TransactionController(IMediator mediator) { this.mediator = mediator; }
+        public TransactionController(IMediator mediator) : base(mediator) { }
 
         [HttpGet(nameof(GetAllTransactionsAsync))]
         public async Task<List<TransactionDto>> GetAllTransactionsAsync() => await mediator.Send(new GetAllTransactionsQuery());
 
         [HttpPost(nameof(AddTransactionAsync))]
-        public async Task<string> AddTransactionAsync(AddTransactionCommand addTransactionCommand) =>
+        public async Task<int> AddTransactionAsync(AddTransactionCommand addTransactionCommand) =>
             await mediator.Send(addTransactionCommand);
     }
 }

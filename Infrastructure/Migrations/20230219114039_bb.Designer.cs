@@ -12,8 +12,8 @@ using Sarafi.Infrastructure.Persistence;
 namespace Sarafi.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230204125817_first")]
-    partial class first
+    [Migration("20230219114039_bb")]
+    partial class bb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,7 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasPrecision(20, 6)
                         .HasColumnType("numeric(20,6)");
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -92,6 +92,7 @@ namespace Sarafi.Infrastructure.Migrations
                             Id = 1L,
                             AccountName = "Deposit",
                             Balance = 0.0m,
+                            CompanyId = 1L,
                             CurrencyType = 0,
                             IsDeleted = false,
                             IsLocked = false,
@@ -103,6 +104,7 @@ namespace Sarafi.Infrastructure.Migrations
                             Id = 2L,
                             AccountName = "Transfer",
                             Balance = 0.0m,
+                            CompanyId = 1L,
                             CurrencyType = 0,
                             IsDeleted = false,
                             IsLocked = false,
@@ -114,6 +116,7 @@ namespace Sarafi.Infrastructure.Migrations
                             Id = 3L,
                             AccountName = "Anything",
                             Balance = 0.0m,
+                            CompanyId = 1L,
                             CurrencyType = 0,
                             IsDeleted = false,
                             IsLocked = false,
@@ -133,7 +136,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<int>("ActivityType")
                         .HasColumnType("integer");
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -183,9 +186,6 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
-
-                    b.Property<long?>("CompanyId")
-                        .HasColumnType("bigint");
 
                     b.Property<int>("Country")
                         .HasColumnType("integer");
@@ -268,7 +268,7 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("ConnectionStatus")
@@ -318,7 +318,7 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -372,7 +372,7 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -409,7 +409,8 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            Code = "Hawala",
+                            Code = "General",
+                            CompanyId = 1L,
                             IsDeleted = false,
                             MasterAccountName = "001"
                         });
@@ -426,7 +427,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<long>("ActivityId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -473,7 +474,7 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -510,6 +511,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
+                            CompanyId = 1L,
                             IsDeleted = false,
                             PermissionCode = "root"
                         });
@@ -522,9 +524,6 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<long?>("CompanyId")
-                        .HasColumnType("bigint");
 
                     b.Property<int>("Country")
                         .HasColumnType("integer");
@@ -577,7 +576,7 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -614,6 +613,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
+                            CompanyId = 1L,
                             IsDeleted = false,
                             RoleName = "System Developer"
                         });
@@ -627,7 +627,7 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -669,6 +669,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
+                            CompanyId = 1L,
                             IsDeleted = false,
                             PermissionId = 1L,
                             RoleId = 1L
@@ -695,7 +696,7 @@ namespace Sarafi.Infrastructure.Migrations
                         .HasPrecision(20, 6)
                         .HasColumnType("numeric(20,6)");
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -757,11 +758,16 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<int>("TransactionType")
                         .HasColumnType("integer");
 
+                    b.Property<long?>("UserId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FromAccountId");
 
                     b.HasIndex("ToAccountId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Transactions");
                 });
@@ -777,7 +783,7 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Property<DateTime>("ActivationDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Country")
@@ -902,11 +908,12 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            ActivationDate = new DateTime(2023, 2, 4, 17, 28, 17, 406, DateTimeKind.Local).AddTicks(5758),
+                            ActivationDate = new DateTime(2023, 2, 19, 16, 10, 38, 916, DateTimeKind.Local).AddTicks(6885),
+                            CompanyId = 1L,
                             Country = 0,
-                            DateOfBirth = new DateTime(2023, 2, 4, 17, 28, 17, 406, DateTimeKind.Local).AddTicks(5743),
+                            DateOfBirth = new DateTime(2023, 2, 19, 16, 10, 38, 916, DateTimeKind.Local).AddTicks(6872),
                             Email = "mustafa.khazaee1@gmail.com",
-                            ExpirationDate = new DateTime(3023, 2, 4, 17, 28, 17, 406, DateTimeKind.Local).AddTicks(5758),
+                            ExpirationDate = new DateTime(2031, 2, 19, 16, 10, 38, 916, DateTimeKind.Local).AddTicks(6886),
                             Fathername = "Ahmad",
                             Firstname = "Mustafa",
                             IsDeleted = false,
@@ -914,9 +921,9 @@ namespace Sarafi.Infrastructure.Migrations
                             Lastname = "Khazaee",
                             Mobile1 = "+93747286603",
                             Mobile2 = "+93765661711",
-                            Password = "f7bda75d8c38f2fd716845859f932217689f6982bdec7619e157d9d25096067278404f635648e10603f6da8ba8b856409694b079b75e65e35f9ccb9b71e8641b",
+                            Password = "0e6fbb0c5a793262f84b4a286aca82d6ebb8f4bb660e136920ea3d5ddee27dd732f74ffe199d2c55c283a0778143ef92d4250348301e03acd0b03a96f63214c2",
                             ProvinceId = 1L,
-                            Salt = "050a03bac64f7bf4e188fd463d5ecbb0",
+                            Salt = "55db5b33d5c5fbbe79296f78f6e26948",
                             UserType = 0,
                             Username = "mustafa"
                         });
@@ -930,7 +937,7 @@ namespace Sarafi.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("CompanyId")
+                    b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("CreatedById")
@@ -972,6 +979,7 @@ namespace Sarafi.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
+                            CompanyId = 1L,
                             IsDeleted = false,
                             RoleId = 1L,
                             UserId = 1L
@@ -1089,9 +1097,15 @@ namespace Sarafi.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Sarafi.Domain.Entities.User", "User")
+                        .WithMany("Transactions")
+                        .HasForeignKey("UserId");
+
                     b.Navigation("FromAccount");
 
                     b.Navigation("ToAccount");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Sarafi.Domain.Entities.User", b =>
@@ -1166,6 +1180,8 @@ namespace Sarafi.Infrastructure.Migrations
                     b.Navigation("ConnectionsTo");
 
                     b.Navigation("Notifications");
+
+                    b.Navigation("Transactions");
 
                     b.Navigation("UserRoles");
                 });

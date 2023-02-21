@@ -4,7 +4,7 @@ using Sarafi.Domain.Enums;
 
 namespace Sarafi.Domain.Entities;
 
-public class Company : AuditableEntity
+public class Company : AggregateRoot
 {
     public Company() { }
 

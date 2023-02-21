@@ -5,6 +5,7 @@ using System.Text;
 using NSwag.Generation.Processors.Security;
 using NSwag;
 using System.Text.Json;
+using Sarafi.API.Filters;
 
 namespace Sarafi.API;
 
@@ -35,6 +36,10 @@ public static class DependencyInjection
                 Description = "Paste JWT Here: Bearer {your JWT token}."
             });
             config.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+        });
+        services.AddSwaggerGen(c =>
+        {
+            c.OperationFilter<ApiKeyOperationFilter>();
         });
         services.AddAuthentication().AddJwtBearer(options =>
         {
