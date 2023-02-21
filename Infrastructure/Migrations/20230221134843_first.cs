@@ -24,14 +24,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Rate = table.Column<decimal>(type: "numeric(20,6)", precision: 20, scale: 6, nullable: false),
                     FromCurrencyType = table.Column<int>(type: "integer", nullable: false),
                     ToCurrencyType = table.Column<int>(type: "integer", nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,14 +39,7 @@ namespace Sarafi.Infrastructure.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     MasterAccountName = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     Code = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,14 +53,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     PermissionCode = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -88,14 +67,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
-                    Country = table.Column<int>(type: "integer", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    Country = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,14 +81,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     RoleName = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -138,14 +103,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Mobile = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     Logo = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     Country = table.Column<int>(type: "integer", nullable: false),
-                    ProvinceId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    ProvinceId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,14 +144,7 @@ namespace Sarafi.Infrastructure.Migrations
                     FingerPrint = table.Column<byte[]>(type: "bytea", nullable: true),
                     Photo = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     NationalIDPhoto = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -214,14 +165,7 @@ namespace Sarafi.Infrastructure.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     RoleId = table.Column<long>(type: "bigint", nullable: false),
                     PermissionId = table.Column<long>(type: "bigint", nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -252,14 +196,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Balance = table.Column<decimal>(type: "numeric(20,6)", precision: 20, scale: 6, nullable: false),
                     CurrencyType = table.Column<int>(type: "integer", nullable: false),
                     IsLocked = table.Column<bool>(type: "boolean", nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -287,14 +224,7 @@ namespace Sarafi.Infrastructure.Migrations
                     UserId = table.Column<long>(type: "bigint", nullable: false),
                     ActivityType = table.Column<int>(type: "integer", nullable: false),
                     JsonData = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -316,14 +246,7 @@ namespace Sarafi.Infrastructure.Migrations
                     FromUserId = table.Column<long>(type: "bigint", nullable: false),
                     ToUserId = table.Column<long>(type: "bigint", nullable: false),
                     ConnectionStatus = table.Column<int>(type: "integer", nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -350,14 +273,7 @@ namespace Sarafi.Infrastructure.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<long>(type: "bigint", nullable: false),
                     RoleId = table.Column<long>(type: "bigint", nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -386,6 +302,7 @@ namespace Sarafi.Infrastructure.Migrations
                     Commission = table.Column<decimal>(type: "numeric(20,6)", precision: 20, scale: 6, nullable: false),
                     FromAccountId = table.Column<long>(type: "bigint", nullable: true),
                     ToAccountId = table.Column<long>(type: "bigint", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: true),
                     ExchangeRate = table.Column<decimal>(type: "numeric(20,6)", precision: 20, scale: 6, nullable: false),
                     ApprovedBy = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     IsApproved = table.Column<bool>(type: "boolean", nullable: false),
@@ -396,14 +313,7 @@ namespace Sarafi.Infrastructure.Migrations
                     ToPersonFingerPrint = table.Column<byte[]>(type: "bytea", nullable: true),
                     Remarks = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     SlipPhoto = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -420,6 +330,11 @@ namespace Sarafi.Infrastructure.Migrations
                         principalTable: "Accounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Transactions_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -431,14 +346,7 @@ namespace Sarafi.Infrastructure.Migrations
                     ActivityId = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<long>(type: "bigint", nullable: false),
                     IsRead = table.Column<bool>(type: "boolean", nullable: false),
-                    CompanyId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedById = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    ModifiedById = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    DeletedById = table.Column<long>(type: "bigint", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                    CompanyId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -459,53 +367,53 @@ namespace Sarafi.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "MasterAccounts",
-                columns: new[] { "Id", "Code", "CompanyId", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "IsDeleted", "MasterAccountName", "ModifiedById", "ModifiedDate" },
-                values: new object[] { 1L, "General", 1L, null, null, null, null, false, "001", null, null });
+                columns: new[] { "Id", "Code", "CompanyId", "MasterAccountName" },
+                values: new object[] { 1L, "General", 1L, "001" });
 
             migrationBuilder.InsertData(
                 table: "Permissions",
-                columns: new[] { "Id", "CompanyId", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "IsDeleted", "ModifiedById", "ModifiedDate", "PermissionCode" },
-                values: new object[] { 1L, 1L, null, null, null, null, false, null, null, "root" });
+                columns: new[] { "Id", "CompanyId", "PermissionCode" },
+                values: new object[] { 1L, 1L, "root" });
 
             migrationBuilder.InsertData(
                 table: "Provinces",
-                columns: new[] { "Id", "Country", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "IsDeleted", "ModifiedById", "ModifiedDate", "Name" },
-                values: new object[] { 1L, 0, null, null, null, null, false, null, null, "Kabul" });
+                columns: new[] { "Id", "Country", "Name" },
+                values: new object[] { 1L, 0, "Kabul" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
-                columns: new[] { "Id", "CompanyId", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "IsDeleted", "ModifiedById", "ModifiedDate", "RoleName" },
-                values: new object[] { 1L, 1L, null, null, null, null, false, null, null, "System Developer" });
+                columns: new[] { "Id", "CompanyId", "RoleName" },
+                values: new object[] { 1L, 1L, "System Developer" });
 
             migrationBuilder.InsertData(
                 table: "Companies",
-                columns: new[] { "Id", "Address", "Country", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "Email", "Floor", "IsDeleted", "Logo", "Market", "Mobile", "ModifiedById", "ModifiedDate", "Name", "ProvinceId", "Room" },
-                values: new object[] { 1L, null, 0, null, null, null, null, null, null, false, null, null, null, null, null, "Brute Force", 1L, null });
+                columns: new[] { "Id", "Address", "Country", "Email", "Floor", "Logo", "Market", "Mobile", "Name", "ProvinceId", "Room" },
+                values: new object[] { 1L, null, 0, null, null, null, null, null, "Brute Force", 1L, null });
 
             migrationBuilder.InsertData(
                 table: "RolePermissions",
-                columns: new[] { "Id", "CompanyId", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "IsDeleted", "ModifiedById", "ModifiedDate", "PermissionId", "RoleId" },
-                values: new object[] { 1L, 1L, null, null, null, null, false, null, null, 1L, 1L });
+                columns: new[] { "Id", "CompanyId", "PermissionId", "RoleId" },
+                values: new object[] { 1L, 1L, 1L, 1L });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "ActivationDate", "CompanyId", "Country", "CreatedById", "CreatedDate", "DateOfBirth", "DeletedById", "DeletedDate", "Email", "ExpirationDate", "Fathername", "FingerPrint", "Firstname", "IsDeleted", "IsLocked", "Lastname", "Mobile1", "Mobile2", "ModifiedById", "ModifiedDate", "NationalIDNo", "NationalIDPhoto", "Password", "Photo", "ProvinceId", "RefreshToken", "Salt", "Signature", "UserType", "Username" },
-                values: new object[] { 1L, new DateTime(2023, 2, 19, 10, 33, 55, 974, DateTimeKind.Local).AddTicks(2872), 1L, 0, null, null, new DateTime(2023, 2, 19, 10, 33, 55, 974, DateTimeKind.Local).AddTicks(2858), null, null, "mustafa.khazaee1@gmail.com", new DateTime(2031, 2, 19, 10, 33, 55, 974, DateTimeKind.Local).AddTicks(2873), "Ahmad", null, "Mustafa", false, false, "Khazaee", "+93747286603", "+93765661711", null, null, null, null, "435da3d45fcff89a2b893329146f2af308159bddb675b17183286c010f047f029c14c0cc2858c5aaa96dab4f19554d8509225762a586230504d4377f17777a18", null, 1L, null, "3d0a9849200f780f0e682a4d3c4ab64f", null, 0, "mustafa" });
+                columns: new[] { "Id", "ActivationDate", "CompanyId", "Country", "DateOfBirth", "Email", "ExpirationDate", "Fathername", "FingerPrint", "Firstname", "IsLocked", "Lastname", "Mobile1", "Mobile2", "NationalIDNo", "NationalIDPhoto", "Password", "Photo", "ProvinceId", "RefreshToken", "Salt", "Signature", "UserType", "Username" },
+                values: new object[] { 1L, new DateTime(2023, 2, 21, 18, 18, 43, 3, DateTimeKind.Local).AddTicks(5199), 1L, 0, new DateTime(2023, 2, 21, 18, 18, 43, 3, DateTimeKind.Local).AddTicks(5186), "mustafa.khazaee1@gmail.com", new DateTime(2031, 2, 21, 18, 18, 43, 3, DateTimeKind.Local).AddTicks(5199), "Ahmad", null, "Mustafa", false, "Khazaee", "+93747286603", "+93765661711", null, null, "0a853b361cb6dcfb8e4f6dc275cdfeed603cc7ffe3a3e9477c33b0746e0f82afe02fe6364fe05eb0c7e0b35451d22d288d87fd9d6bd1a5a0c3a34eedb51a8f26", null, 1L, null, "a725511a330931596d8ddaf610253d34", null, 0, "mustafa" });
 
             migrationBuilder.InsertData(
                 table: "Accounts",
-                columns: new[] { "Id", "AccountName", "Balance", "CompanyId", "CreatedById", "CreatedDate", "CurrencyType", "DeletedById", "DeletedDate", "IsDeleted", "IsLocked", "MasterAccountId", "ModifiedById", "ModifiedDate", "UserId" },
+                columns: new[] { "Id", "AccountName", "Balance", "CompanyId", "CurrencyType", "IsLocked", "MasterAccountId", "UserId" },
                 values: new object[,]
                 {
-                    { 1L, "Deposit", 0.0m, 1L, null, null, 0, null, null, false, false, 1L, null, null, 1L },
-                    { 2L, "Transfer", 0.0m, 1L, null, null, 0, null, null, false, false, 1L, null, null, 1L },
-                    { 3L, "Anything", 0.0m, 1L, null, null, 0, null, null, false, false, 1L, null, null, 1L }
+                    { 1L, "Deposit", 0.0m, 1L, 0, false, 1L, 1L },
+                    { 2L, "Transfer", 0.0m, 1L, 0, false, 1L, 1L },
+                    { 3L, "Anything", 0.0m, 1L, 0, false, 1L, 1L }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
-                columns: new[] { "Id", "CompanyId", "CreatedById", "CreatedDate", "DeletedById", "DeletedDate", "IsDeleted", "ModifiedById", "ModifiedDate", "RoleId", "UserId" },
-                values: new object[] { 1L, 1L, null, null, null, null, false, null, null, 1L, 1L });
+                columns: new[] { "Id", "CompanyId", "RoleId", "UserId" },
+                values: new object[] { 1L, 1L, 1L, 1L });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_MasterAccountId",
@@ -566,6 +474,11 @@ namespace Sarafi.Infrastructure.Migrations
                 name: "IX_Transactions_ToAccountId",
                 table: "Transactions",
                 column: "ToAccountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_UserId",
+                table: "Transactions",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserRoles_RoleId",
