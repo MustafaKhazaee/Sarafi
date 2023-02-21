@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using Sarafi.Domain.Common;
 using Microsoft.EntityFrameworkCore.Query;
 using Sarafi.Application.Interfaces.Services;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Sarafi.Infrastructure.Implementations.Repositories;
 
