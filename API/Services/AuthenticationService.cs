@@ -64,7 +64,7 @@ public class AuthenticationService : IAuthenticationService
                     {
                         //DateTime refDate = user.ExpirationDate;
 
-                        DateTime refDate = DateTime.Now.AddHours(1);
+                        DateTime refDate = DateTime.Now.AddMinutes(3);
                         DateTime dateTime = DateTime.Now.AddMinutes(Values.RefreshTokenLifeTimeMinutes);
                         string refreshToken = await GenerateJWT(user, roles, permissions, refDate);
                         string accessToken = await GenerateJWT(user, roles, permissions, dateTime);

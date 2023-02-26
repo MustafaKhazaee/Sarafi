@@ -28,8 +28,8 @@ public static class ApplicationDbContextSeed
         List<Account> accounts = new List<Account>
         {
             new Account (1, "Deposit", 1, 1, CurrencyType.Afghani, 1),
-            new Account (2, "Transfer", 1, 1, CurrencyType.Afghani, 1),
-            new Account (3, "Anything", 1, 1, CurrencyType.Afghani, 1),
+            new Account (2, "Transfer", 1, 1, CurrencyType.Euro, 1),
+            new Account (3, "Anything", 1, 1, CurrencyType.USDollar, 1),
         };
         MasterAccount masterAccount = new(1, "001", "General", 1);
         builder.Entity<Province>().HasData(province);
